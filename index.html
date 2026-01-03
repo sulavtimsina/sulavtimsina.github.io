@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sulav Timsina | Android Developer</title>
+    <meta name="description" content="Sulav Timsina - Passionate Android Developer from Texas. Building mobile experiences with Kotlin, Java, and modern Android technologies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --gradient-1: #3b82f6;
+            --gradient-2: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* About Section */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+
+        #about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-secondary);
+            transition: fill 0.3s;
+        }
+
+        .social-link:hover svg {
+            fill: white;
+        }
+
+        .email-link {
+            color: var(--accent);
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">ST</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">Available for opportunities</span>
+                <h1>Hi, I'm <span>Sulav Timsina</span></h1>
+                <p>A passionate Android Developer from Texas, building beautiful and performant mobile experiences with modern technologies.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Get in Touch
+                    </a>
+                    <a href="https://github.com/sulavtimsina" target="_blank" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <span class="section-title">About Me</span>
+            <h2 class="section-heading">Building the Future of Mobile</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm an Android Application Developer with a passion for creating intuitive, high-performance mobile applications. Based in Texas, I specialize in building native Android apps using Kotlin and Java.</p>
+                    <p>My expertise spans the entire mobile development lifecycle, from architecture design to deployment. I'm committed to writing clean, maintainable code and staying current with the latest Android technologies and best practices.</p>
+                    <p>When I'm not coding, you can find me exploring new places, capturing moments through photography, or contributing to open-source projects.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Apps Built</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">App Downloads</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <span class="section-title">Expertise</span>
+            <h2 class="section-heading">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" alt="Android" class="skill-icon">
+                    <h3>Android Development</h3>
+                    <p>Building native Android applications with modern architecture patterns and best practices.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Jetpack</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="skill-icon">
+                    <h3>Modern Android</h3>
+                    <p>Implementing Jetpack Compose, Coroutines, Flow, and other cutting-edge Android technologies.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Compose</span>
+                        <span class="skill-tag">Coroutines</span>
+                        <span class="skill-tag">Flow</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase" class="skill-icon">
+                    <h3>Backend Integration</h3>
+                    <p>Integrating with Firebase, REST APIs, GraphQL, and various backend services.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">REST</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" class="skill-icon">
+                    <h3>Development Tools</h3>
+                    <p>Proficient with Android Studio, Git, CI/CD pipelines, and agile development workflows.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <span class="section-title">Contact</span>
+                <h2 class="section-heading">Let's Work Together</h2>
+                <p>I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/sulavtimsina" target="_blank" class="social-link" title="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://github.com/sulavtimsina" target="_blank" class="social-link" title="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/sulavtimsina" target="_blank" class="social-link" title="Twitter">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/nepalese_explorer" target="_blank" class="social-link" title="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/c/sulavtimsina" target="_blank" class="social-link" title="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sulav Timsina. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
