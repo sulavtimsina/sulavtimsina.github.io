@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulav Timsina | Android Developer</title>
-    <meta name="description" content="Sulav Timsina - Passionate Android Developer from Texas. Building mobile experiences with Kotlin, Java, and modern Android technologies.">
+    <title>Sulav Timsina | Android Developer & AI Enthusiast</title>
+    <meta name="description" content="Sulav Timsina - Android Developer from Texas exploring AI. Building mobile experiences today, learning to shape tomorrow.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,8 @@
             --accent-hover: #2563eb;
             --gradient-1: #3b82f6;
             --gradient-2: #8b5cf6;
+            --green: #10b981;
+            --orange: #f59e0b;
         }
 
         * {
@@ -183,7 +185,7 @@
             border-color: rgba(255,255,255,0.3);
         }
 
-        /* About Section */
+        /* Sections */
         section {
             padding: 120px 0;
         }
@@ -217,6 +219,11 @@
             color: var(--text-secondary);
             margin-bottom: 20px;
             font-size: 1.1rem;
+        }
+
+        .about-text .highlight {
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .stats {
@@ -301,6 +308,273 @@
             color: var(--accent);
         }
 
+        /* Projects Section */
+        #projects {
+            background: var(--bg-secondary);
+        }
+
+        .project-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-card[data-hidden="true"] {
+            display: none;
+        }
+
+        .project-header {
+            padding: 24px 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .project-link {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+        }
+
+        .project-link svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--text-secondary);
+            transition: fill 0.3s;
+        }
+
+        .project-link:hover svg {
+            fill: white;
+        }
+
+        .project-body {
+            padding: 20px 24px 24px;
+        }
+
+        .project-body h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            padding: 4px 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        .tech-tag.ai {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--gradient-2);
+        }
+
+        /* GitHub Stats Section */
+        #github-stats {
+            background: var(--bg-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            justify-items: center;
+        }
+
+        .stats-grid img {
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        /* Learning Journey Section */
+        #journey {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gradient-1), var(--gradient-2));
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            max-width: 350px;
+            margin-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Blog Preview Section */
+        #blog {
+            background: var(--bg-primary);
+        }
+
+        .blog-preview {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-preview p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .blog-coming-soon {
+            padding: 48px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .blog-coming-soon h3 {
+            margin-bottom: 16px;
+        }
+
+        .blog-coming-soon p {
+            margin-bottom: 0;
+        }
+
         /* Contact Section */
         #contact {
             background: var(--bg-secondary);
@@ -353,16 +627,6 @@
             fill: white;
         }
 
-        .email-link {
-            color: var(--accent);
-            font-size: 1.25rem;
-            text-decoration: none;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -393,6 +657,31 @@
             .hero-buttons {
                 flex-direction: column;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
         }
     </style>
 </head>
@@ -403,6 +692,9 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -411,22 +703,21 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-label">Available for opportunities</span>
+                <span class="hero-label">Android Developer exploring AI</span>
                 <h1>Hi, I'm <span>Sulav Timsina</span></h1>
-                <p>A passionate Android Developer from Texas, building beautiful and performant mobile experiences with modern technologies.</p>
+                <p>Building mobile experiences today, learning AI to shape tomorrow. I believe in continuous growth and tackling challenges that push my boundaries.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
+                    <a href="#projects" class="btn btn-primary">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                         </svg>
-                        Get in Touch
+                        View Projects
                     </a>
                     <a href="https://github.com/sulavtimsina" target="_blank" class="btn btn-secondary">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        View GitHub
+                        GitHub Profile
                     </a>
                 </div>
             </div>
@@ -436,12 +727,12 @@
     <section id="about">
         <div class="container">
             <span class="section-title">About Me</span>
-            <h2 class="section-heading">Building the Future of Mobile</h2>
+            <h2 class="section-heading">Always Learning, Always Building</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I'm an Android Application Developer with a passion for creating intuitive, high-performance mobile applications. Based in Texas, I specialize in building native Android apps using Kotlin and Java.</p>
-                    <p>My expertise spans the entire mobile development lifecycle, from architecture design to deployment. I'm committed to writing clean, maintainable code and staying current with the latest Android technologies and best practices.</p>
-                    <p>When I'm not coding, you can find me exploring new places, capturing moments through photography, or contributing to open-source projects.</p>
+                    <p>I'm an Android Developer based in Texas with a passion for creating intuitive, high-performance mobile applications. I specialize in Kotlin, Jetpack Compose, and modern Android architecture patterns.</p>
+                    <p>What drives me is <span class="highlight">curiosity</span>. I'm not content with just knowing one technology. Currently, I'm diving into <span class="highlight">AI and machine learning</span>, building Chrome extensions that use OpenAI, and exploring how AI can enhance mobile experiences.</p>
+                    <p>I believe <span class="highlight">nothing is impossible</span> with the right mindset and consistent effort. Whether it's learning a new framework or tackling a complex problem, I approach every challenge as an opportunity to grow.</p>
                 </div>
                 <div class="stats">
                     <div class="stat">
@@ -479,32 +770,264 @@
                 <div class="skill-card">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="skill-icon">
                     <h3>Modern Android</h3>
-                    <p>Implementing Jetpack Compose, Coroutines, Flow, and other cutting-edge Android technologies.</p>
+                    <p>Implementing Jetpack Compose, Coroutines, Flow, and Compose Multiplatform for cross-platform apps.</p>
                     <div class="skill-tags">
                         <span class="skill-tag">Compose</span>
                         <span class="skill-tag">Coroutines</span>
-                        <span class="skill-tag">Flow</span>
+                        <span class="skill-tag">Multiplatform</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase" class="skill-icon">
-                    <h3>Backend Integration</h3>
-                    <p>Integrating with Firebase, REST APIs, GraphQL, and various backend services.</p>
+                    <svg class="skill-icon" viewBox="0 0 24 24" fill="#10b981">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    <h3>AI & Automation</h3>
+                    <p>Exploring AI integration with OpenAI APIs, building intelligent browser extensions and automation tools.</p>
                     <div class="skill-tags">
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">REST</span>
-                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">OpenAI</span>
+                        <span class="skill-tag">Chrome Extensions</span>
+                        <span class="skill-tag">Automation</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" class="skill-icon">
                     <h3>Development Tools</h3>
-                    <p>Proficient with Android Studio, Git, CI/CD pipelines, and agile development workflows.</p>
+                    <p>Proficient with Android Studio, Git, CI/CD pipelines, Docker, and agile development workflows.</p>
                     <div class="skill-tags">
                         <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
                         <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Agile</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <span class="section-title">My Work</span>
+            <h2 class="section-heading">Featured Projects</h2>
+
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="android">Android</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- LinkedAiReply -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/LinkedAiReply" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>LinkedAiReply</h3>
+                        <p>AI-powered Chrome extension that extracts LinkedIn conversations and generates intelligent, contextual responses using OpenAI ChatGPT.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag ai">OpenAI</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chrome Extension</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ExpenseTrackerCMP -->
+                <div class="project-card" data-category="android">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/ExpenseTrackerCMP" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>ExpenseTrackerCMP</h3>
+                        <p>A modern expense tracking app built with Compose Multiplatform, running on Android, iOS, and Desktop from a single codebase.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Compose Multiplatform</span>
+                            <span class="tech-tag">Cross-Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ChatGptClone -->
+                <div class="project-card" data-category="android ai">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/ChatGptClone" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>ChatGPT Clone</h3>
+                        <p>Android app replicating ChatGPT functionality, demonstrating API integration and modern Android UI patterns.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag ai">OpenAI API</span>
+                            <span class="tech-tag">Jetpack Compose</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ComposeMvvmHilt -->
+                <div class="project-card" data-category="android">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 11.09L4.37 9 12 4.91 19.63 9 12 14.09zM12 21l-7-3.82v-5.72l7 3.82 7-3.82v5.72L12 21z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/ComposeMvvmHilt" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Compose MVVM Hilt</h3>
+                        <p>Template project showcasing modern Android architecture with Jetpack Compose, MVVM pattern, and Hilt dependency injection.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Compose</span>
+                            <span class="tech-tag">Hilt</span>
+                            <span class="tech-tag">MVVM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- android-studio-docker -->
+                <div class="project-card" data-category="tools">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/android-studio-docker" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Android Studio Docker</h3>
+                        <p>Android Studio + Flutter in Docker with working emulator. Supports display forwarding, even over SSH.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Shell</span>
+                            <span class="tech-tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- securecards-chrome-extension -->
+                <div class="project-card" data-category="tools">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sulavtimsina/securecards-chrome-extension" target="_blank" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>SecureCards</h3>
+                        <p>A privacy-focused Chrome extension for managing credit and debit cards locally, with no data sent to external servers.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">Privacy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="github-stats">
+        <div class="container">
+            <span class="section-title">Activity</span>
+            <h2 class="section-heading">GitHub Stats</h2>
+            <div class="stats-grid">
+                <img src="https://github-readme-stats.vercel.app/api?username=sulavtimsina&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a0a0a" alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sulavtimsina&layout=compact&theme=tokyonight&hide_border=true&bg_color=0a0a0a" alt="Top Languages">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=sulavtimsina&theme=tokyonight&hide_border=true&background=0a0a0a" alt="GitHub Streak">
+            </div>
+        </div>
+    </section>
+
+    <section id="journey">
+        <div class="container">
+            <span class="section-title">Growth</span>
+            <h2 class="section-heading">My Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Started Android Development</h3>
+                        <p>Began my journey with Java and XML layouts. Built my first apps and fell in love with mobile development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>Embraced Kotlin</h3>
+                        <p>Transitioned to Kotlin, adopted Coroutines, Flow, and modern Android architecture patterns like MVVM.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Jetpack Compose & Multiplatform</h3>
+                        <p>Mastered declarative UI with Compose. Started exploring Compose Multiplatform for cross-platform development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>AI Integration & Exploration</h3>
+                        <p>Built AI-powered applications using OpenAI APIs. Currently exploring how AI can enhance mobile experiences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Future</div>
+                        <h3>What's Next?</h3>
+                        <p>Continuing to learn, build, and push boundaries. Always open to new technologies and challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <span class="section-title">Thoughts</span>
+            <h2 class="section-heading">Blog</h2>
+            <div class="blog-preview">
+                <p>I write about my experiences in Android development, AI exploration, and lessons learned along the way.</p>
+                <div class="blog-coming-soon">
+                    <h3>Coming Soon</h3>
+                    <p>Blog posts are on the way! Topics will include building AI-powered extensions, my journey with Compose Multiplatform, and tips for Android developers.</p>
                 </div>
             </div>
         </div>
@@ -523,7 +1046,7 @@
                     <a href="https://github.com/sulavtimsina" target="_blank" class="social-link" title="GitHub">
                         <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
-                    <a href="https://twitter.com/sulavtimsina" target="_blank" class="social-link" title="Twitter">
+                    <a href="https://twitter.com/sulavtimsina" target="_blank" class="social-link" title="Twitter/X">
                         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
                     <a href="https://www.youtube.com/c/sulavtimsina" target="_blank" class="social-link" title="YouTube">
@@ -536,8 +1059,51 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Sulav Timsina. All rights reserved.</p>
+            <p>&copy; 2025 Sulav Timsina. Built with curiosity and continuous learning.</p>
         </div>
     </footer>
+
+    <script>
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                projectCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.removeAttribute('data-hidden');
+                    } else {
+                        const categories = card.dataset.category.split(' ');
+                        if (categories.includes(filter)) {
+                            card.removeAttribute('data-hidden');
+                        } else {
+                            card.setAttribute('data-hidden', 'true');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
